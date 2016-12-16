@@ -1,0 +1,37 @@
+{% extends  'common/base.html' %}
+{% load staticfiles %}
+
+{% block container %}
+  <div class="container-fluid container-banner container-banner-a">
+    <div class="container container-uinfo">
+      <div class="header-uinfo">
+        <div class="uinfo-head"><img src="{{ media_url }}{{ teacher_info.avatar_url }}"></div>
+        <div class="uinfo-con">
+          <p>{{ teacher_info.last_name }}{{ teacher_info.first_name }}</p>
+          <p>职位：{{ teacher_info.position}}</p>
+          <p>简介：{{ teacher_info.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container uc-boxb">
+    <div class="uc-h1">他的课程</div>
+    <ul class="row my-course">
+        {% for cou in course %}
+      <li class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+        <!--这里直把图片放在背景里了。没有小图片-->
+        <section style="background-image:url('{{ media_url }}{{ cou.image }}');">
+          <a href="">
+          	<img src="">
+            <article>
+{#              <h3>{{ cou.name }}</h3>#}
+{#              <p>学习人数：{{ cou.student_count }}</p>#}
+            </article>
+          </a>
+          <a href="" class="opt">查看</a>
+        </section>
+      </li>
+        {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

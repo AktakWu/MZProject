@@ -1,0 +1,21 @@
+ {% load staticfiles %}
+<div class="col-sm-12 v5-pages-list">
+        <ul class="row fr">
+                {% if career_list.has_previous %}
+                <li><a class="v5-icon v5-icon-prev" href="?page={{ career_list.previous_page_number }}"></a></li>
+                {% else %}
+                <li><a href="" class="v5-icon v5-icon-prev"></a></li>
+                {% endif %}
+
+                 {% for pagenum in  career_list.paginator.page_range%}
+                     <li><a href="?page={{ pagenum }}" class="page-num">{{ pagenum }}</a></li>
+                 {% endfor  %}
+
+                {% if career_list.has_next %}
+                    <li><a href="?page={{ career_list.next_page_number }}" class="v5-icon v5-icon-next"></a></li>
+                {% else %}
+                  <li><a href="" class="v5-icon v5-icon-next"></a></li>
+                {% endif %}
+
+        </ul>
+</div>
